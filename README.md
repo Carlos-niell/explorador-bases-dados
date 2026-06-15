@@ -167,4 +167,3 @@ Baseado no relatório "Tipos de Bases de Dados: Um Guia Completo"
 
 ---
 
-**Desenvolvido com ❤️ para educação em tecnologia**
