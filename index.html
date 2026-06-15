@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador Interativo de Bases de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="bg-white border-b border-stone-200 py-6 px-4 md:px-8 shadow-sm">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div>
+                <h1 class="text-3xl font-bold text-stone-900 tracking-tight">O Ecossistema de Bases de Dados</h1>
+                <p class="text-stone-500 mt-1 text-sm md:text-base">Da rigidez relacional à especialização inteligente: explore as arquiteturas que movem o mundo digital.</p>
+            </div>
+            <div class="hidden md:flex text-4xl">🗄️ 📦 🕸️ 🧠</div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto w-full p-4 md:p-8 flex flex-col gap-10">
+        
+        <section class="mb-4">
+            <h2 class="text-2xl font-semibold mb-2">Explorador de Arquiteturas</h2>
+            <p class="text-stone-600 mb-6">Esta secção permite-lhe navegar pelas diferentes famílias de bases de dados. Selecione uma categoria no menu lateral para revelar as suas características, vantagens e casos de uso reais, compreendendo o seu papel no ecossistema moderno.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-2 rounded-2xl shadow-sm border border-stone-200">
+                
+                <nav class="md:col-span-4 flex flex-col gap-1 p-2">
+                    <div class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-2 mt-2 px-3">Relacionais (SQL)</div>
+                    <button class="nav-btn active flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="sql">
+                        <span class="text-xl">🗄️</span> Tradicionais (SQL)
+                    </button>
+
+                    <div class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-2 mt-4 px-3">Não Relacionais (NoSQL)</div>
+                    <button class="nav-btn flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="kv">
+                        <span class="text-xl">⚡</span> Chave-Valor
+                    </button>
+                    <button class="nav-btn flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="doc">
+                        <span class="text-xl">📄</span> Documentos
+                    </button>
+                    <button class="nav-btn flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="col">
+                        <span class="text-xl">📊</span> Colunares
+                    </button>
+                    <button class="nav-btn flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="graph">
+                        <span class="text-xl">🕸️</span> Grafos
+                    </button>
+
+                    <div class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-2 mt-4 px-3">Especializadas</div>
+                    <button class="nav-btn flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="vec">
+                        <span class="text-xl">🧠</span> Vetoriais (IA)
+                    </button>
+                    <button class="nav-btn flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="ts">
+                        <span class="text-xl">⏱️</span> Séries Temporais
+                    </button>
+                    <button class="nav-btn flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors" data-target="mem">
+                        <span class="text-xl">🚀</span> Em Memória
+                    </button>
+                </nav>
+
+                <div class="md:col-span-8 bg-stone-50 rounded-xl p-6 md:p-8 border border-stone-100 min-h-[400px] flex flex-col justify-center" id="content-display">
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-stone-200">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Análise de Compromissos Técnicos (Trade-offs)</h2>
+            <p class="text-stone-600 text-center max-w-3xl mx-auto mb-8">Nenhuma base de dados é perfeita para tudo. Esta visualização ilustra os compromissos concetuais entre as principais famílias. Relacionais focam-se em consistência, NoSQL em escala e flexibilidade, enquanto Grafos sacrificam estrutura simples para mapear relações complexas instantaneamente.</p>
+            
+            <div class="chart-container">
+                <canvas id="tradeoffChart"></canvas>
+            </div>
+        </section>
+
+        <section class="bg-stone-800 text-stone-100 p-6 md:p-10 rounded-2xl shadow-md">
+            <h2 class="text-2xl font-semibold mb-2 text-white">Assistente de Decisão de Arquitetura</h2>
+            <p class="text-stone-400 mb-6">Utilize esta ferramenta interativa para simular o processo de escolha de uma tecnologia. Selecione o cenário do seu projeto para descobrir a família de bases de dados recomendada.</p>
+            
+            <div class="bg-stone-700 p-6 rounded-xl">
+                <label for="needSelector" class="block text-sm font-medium text-stone-300 mb-2">Qual é a necessidade principal do seu projeto?</label>
+                <select id="needSelector" class="block w-full bg-stone-800 border border-stone-600 text-white rounded-lg p-3 outline-none focus:ring-2 focus:ring-sky-500 transition-all">
+                    <option value="" disabled selected>-- Selecione um cenário --</option>
+                </select>
+
+                <div id="decisionResult" class="mt-6 p-5 bg-sky-900/40 border border-sky-700/50 rounded-lg hidden fade-in">
+                    <p class="text-sky-200 text-sm uppercase tracking-wider font-bold mb-1">Tecnologia Recomendada</p>
+                    <h3 id="resType" class="text-2xl font-bold text-white mb-2"></h3>
+                    <p class="text-stone-300">Exemplo Prático: <span id="resExample" class="font-mono bg-stone-900 px-2 py-1 rounded text-sky-300 text-sm"></span></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-500 py-8 text-center text-sm">
+        <p>Baseado no relatório "Tipos de Bases de Dados: Um Guia Completo".</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
