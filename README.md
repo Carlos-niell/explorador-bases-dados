@@ -11,6 +11,16 @@ Este projeto é uma ferramenta educacional que ajuda a compreender o ecossistema
 - **Assistente de decisão**: Recomenda o tipo de banco ideal baseado na necessidade do projeto
 - **Interface responsiva**: Funciona perfeitamente em dispositivos móveis e desktop
 
+## 🖼️ Preview da Aplicação
+
+![Explorador Interativo de Bases de Dados](images/screenshot.jpg)
+
+A aplicação apresenta uma interface limpa e intuitiva com:
+- **Barra de Navegação Lateral**: Menu com 8 tipos diferentes de bases de dados organizados em categorias
+- **Painel de Conteúdo Principal**: Mostra detalhes completos de cada tipo selecionado
+- **Gráfico de Radar Interativo**: Visualização dos trade-offs técnicos
+- **Seção de Decisão**: Assistente interativo para escolher a melhor tecnologia
+
 ## 🚀 Características
 
 ### 1. Explorador de Arquiteturas
