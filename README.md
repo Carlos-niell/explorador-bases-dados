@@ -13,7 +13,7 @@ Este projeto é uma ferramenta educacional que ajuda a compreender o ecossistema
 
 ## 🖼️ Preview da Aplicação
 
-![Explorador Interativo de Bases de Dados](images/screenshot.jpg)
+![Explorador Interativo de Bases de Dados](images/screenshot.png)
 
 A aplicação apresenta uma interface limpa e intuitiva com:
 - **Barra de Navegação Lateral**: Menu com 8 tipos diferentes de bases de dados organizados em categorias
